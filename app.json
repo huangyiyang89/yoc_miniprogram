@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/login/login",
+    "pages/my/my",
+    "pages/activity/activity",
+    "pages/my/register"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Yes of course",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#11cd6e",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "活动"
+      },
+      {
+        "pagePath": "pages/activity/activity",
+        "text": "发现"
+      },
+      {
+        "pagePath": "pages/activity/activity",
+        "text": "排名"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我"
+      }
+    ]
+  }
+}
