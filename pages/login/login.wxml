@@ -1,2 +1,25 @@
-<!--pages/login/login.wxml-->
-<text>pages/login/login.wxml</text>
+<view wx:if="{{loginFail}}" class="page">
+    <view class="weui-msg">
+        <view class="weui-msg__icon-area">
+            <icon type="warn" size="93"></icon>
+        </view>
+        <view class="weui-msg__text-area">
+            <view class="weui-msg__title">登录失败</view>
+            <view class="weui-msg__desc">服务器错误，或无法连接网络</view>
+        </view>
+        <view class="weui-msg__opr-area">
+            <view class="weui-btn-area">
+                <button class="weui-btn" type="primary">重新尝试</button>
+                <button class="weui-btn" type="default">辅助操作</button>
+            </view>
+        </view>
+        <view class="weui-msg__extra-area">
+            <view class="weui-footer">
+                <view class="weui-footer__links">
+                    <navigator url="" class="weui-footer__link">Yes of course</navigator>
+                </view>
+                <view class="weui-footer__text">Copyright © yesofcourse.com.cn</view>
+            </view>
+        </view>
+    </view>
+</view>

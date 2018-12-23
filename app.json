@@ -1,11 +1,16 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/logs/logs",
     "pages/login/login",
-    "pages/my/my",
     "pages/activity/activity",
-    "pages/my/register"
+    "pages/logs/logs",
+    "pages/my/my",
+    "pages/my/register",
+    "pages/discovery/discovery",
+    "pages/rank/rank",
+    "pages/discovery/article",
+    "pages/my/character",
+    "pages/activity/raiders"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,20 +23,28 @@
     "borderStyle": "white",
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "text": "活动"
+        "pagePath": "pages/activity/activity",
+        "text": "活动",
+        "iconPath": "content/activity.png",
+        "selectedIconPath": "content/activity2.png"
       },
       {
-        "pagePath": "pages/activity/activity",
-        "text": "发现"
+        "pagePath": "pages/discovery/discovery",
+        "text": "发现",
+        "iconPath": "content/discovery.png",
+        "selectedIconPath": "content/discovery2.png"
       },
       {
-        "pagePath": "pages/activity/activity",
-        "text": "排名"
+        "pagePath": "pages/my/character",
+        "text": "排名",
+        "iconPath": "content/rank.png",
+        "selectedIconPath": "content/rank2.png"
       },
       {
         "pagePath": "pages/my/my",
-        "text": "我"
+        "text": "我",
+        "iconPath": "content/my.png",
+        "selectedIconPath": "content/my2.png"
       }
     ]
   }

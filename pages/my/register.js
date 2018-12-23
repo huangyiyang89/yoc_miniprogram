@@ -1,5 +1,5 @@
 // pages/my/register.js
-var app=getApp();
+var app = getApp();
 Page({
 
   /**
@@ -14,7 +14,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    this.setData({
+      name: app.globalData.user.name == null ? "" : app.globalData.user.name,
+      phone: app.globalData.user.phone == null ? "" : app.globalData.user.phone
+    })
   },
 
   nameInput(e) {
@@ -29,23 +32,18 @@ Page({
     })
   },
   submit(e) {
-    let that=this;
+    app.globalData.user.name=this.data.name;
+    app.globalData.user.phone = this.data.phone
     wx.request({
-      url: 'https://yoc.huangyiyang.com/api/user/' + app.globalData.openid,
-      data: {
-        name: this.data.name,
-        phone: this.data.phone
-      },
+      url: 'https://yoc.huangyiyang.com/api/users/' + app.globalData.user.id,
+      method: 'PUT',
+      data: app.globalData.user,
       success(res) {
-        app.globalData.user.name = that.data.name;
-        app.globalData.user.phone = that.data.phone;
-        wx.setStorage({
-          key: 'user',
-          data: app.globalData.user,
-        })
-        wx.navigateBack({
-          
-        })
+        if(res.statusCode==200){
+          app.globalData.user=res.data;
+          console.log(app.globalData.user)
+        }
+        wx.navigateBack()
       }
     })
   }

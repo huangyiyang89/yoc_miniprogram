@@ -1,0 +1,48 @@
+<view class="page__hd">
+  <view class="page__title">更新您的角色</view>
+  <view class="page__desc">洛丹伦的森林轻声唤出了你的名字</view>
+</view>
+<view class="page__bd">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">角色名</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入您的角色名" bindinput="nameInput" />
+      </view>
+    </view>
+
+  </view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">手机号</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入您的手机号" bindinput="phoneInput" />
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section__title">多列选择器</view>
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+      <view class="picker">
+        当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="primary" bindtap='submit'>确定</button>
+  </view>
+  <view style='height:50rpx'></view>
+  <view class="weui-footer">
+    <view class="weui-footer__links">
+      <navigator url="" class="weui-footer__link">Yes of course</navigator>
+    </view>
+    <view class="weui-footer__text">Copyright © yesofcourse.com.cn</view>
+  </view>
+
+</view>

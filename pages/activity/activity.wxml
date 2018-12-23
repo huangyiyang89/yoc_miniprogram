@@ -1,2 +1,31 @@
-<!--pages/activity/activity.wxml-->
+<!--index.wxml-->
+<view class="page">
 
+  <!--页头-->
+  <view class="page__hd">
+    <view class="page__title">下一次活动：{{raid.title}}</view>
+    <view class="page__desc">{{raid.startTimeStr}}</view>
+  </view>
+
+  <!--主体-->
+  <view class="page__bd page__bd_spacing">
+    <view>
+      <image src="{{raid.image}}" style='width:100%;height:388.125rpx'></image>
+    </view>
+    <view style='font-size:14px;color:#888888;text-align:center'>点击图片查看攻略</view>
+    <view style='margin:20rpx 40rpx'>
+      {{raid.content}}
+    </view>
+
+  </view>
+
+  <view style='position:fixed;bottom:.52em;left:0;right:0;font-size:20px;text-align:center'>
+
+    <view style='margin:0 40rpx'>
+      <navigator url='raiders'><view style='font-size:14px;color:#888888'>{{description}}</view></navigator>
+      
+      <slider value='{{raider.possibility}}' step='25' bindchange='sliderchange' bindchanging='sliderchanging' />
+    </view>
+
+  </view>
+</view>

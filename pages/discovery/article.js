@@ -1,48 +1,22 @@
-let app = getApp();
+// pages/discovery/article.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    lgoinFail:false
+    scr: ""
   },
-  login: function() {
-    wx.showLoading({
-      title: '登录中',
-    })
-    wx.login({
-      success: res => {
-        if (res.code) {
-          wx.request({
-            url: 'https://yoc.huangyiyang.com/api/users/login/' + res.code,
-            success: res => {
-              if (res.statusCode == 200) {
-                app.globalData.user = res.data;
-                wx.switchTab({
-                  url: '/pages/activity/activity'
-                })
-              } else {
-                logingFail=true;
-              }
-            },
-            fail:res=>{
-              logingFail = true;
-            },
-            complete: res => {
-              wx.hideLoading();
-            }
 
-          })
-        }
-      }
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.login();
+    
+    this.setData({
+      src: decodeURIComponent(options.src)
+    });
+    console.log(this.data.src);
   },
 
   /**
