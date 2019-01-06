@@ -5,9 +5,7 @@ const app = getApp()
 Page({
   data: {
     raid: null,
-    raider: {
-
-    },
+    raider: null,
     description: "拖动滑块描述能够参加活动的可能性"
   },
   onLoad: function() {
@@ -24,12 +22,15 @@ Page({
           });
 
           if (res.data.raiders != null) {
-            let raider = this.data.raid.raiders.find(function(value, index, arr) {
-              return value.userId == app.globalData.user.id;
+            let raider = this.data.raid.raiders.find(function(value) {
+              return value.userId == app.globalData.user.id && value.raidId == res.data.id;
             });
-            this.setData({
-              raider: raider
-            })
+            if (raider) {
+              this.setData({
+                raider: raider
+              })
+              this.setDescription(raider.possibility);
+            }
 
           }
 
@@ -49,7 +50,8 @@ Page({
         userId: app.globalData.user.id,
         possibility: e.detail.value
       }
-    })
+    });
+    this.setDescription(e.detail.value);
     wx.request({
       url: 'https://yoc.huangyiyang.com/api/raiders/' + this.data.raid.id + '/' + app.globalData.user.id,
       method: 'PUT',
@@ -63,35 +65,17 @@ Page({
         }
       }
     })
-    switch (e.detail.value) {
-      case 0:
-        this.setData({
-          description: "铁定上不了了"
-        });
-        break;
-      case 25:
-        this.setData({
-          description: "基本上不了了"
-        });
-        break;
-      case 50:
-        this.setData({
-          description: "还不确定是否能上"
-        });
-        break;
-      case 75:
-        this.setData({
-          description: "没意外应该能上"
-        });
-        break;
-      case 100:
-        this.setData({
-          description: "一定确定以及肯定能上"
-        });
-    }
   },
   sliderchanging(e) {
-    switch (e.detail.value) {
+    this.setDescription(e.detail.value)
+  },
+  setDescription(value){
+    switch (value) {
+      case null:
+        this.setData({
+          description: "拖动滑块描述能够参加活动的可能性"
+        });
+        break;
       case 0:
         this.setData({
           description: "铁定上不了了"
@@ -117,5 +101,5 @@ Page({
           description: "一定确定以及肯定能上"
         });
     }
-  },
+  }
 })

@@ -4,7 +4,9 @@
   <!--页头-->
   <view class="page__hd">
     <view class="page__title">下一次活动：{{raid.title}}</view>
-    <view class="page__desc">{{raid.startTimeStr}}</view>
+    <navigator class="page__desc" url='raiders'>{{raid.startTimeStr}}
+      <text style='margin-left:30rpx'>查看统计</text>
+    </navigator>
   </view>
 
   <!--主体-->
@@ -22,8 +24,10 @@
   <view style='position:fixed;bottom:.52em;left:0;right:0;font-size:20px;text-align:center'>
 
     <view style='margin:0 40rpx'>
-      <navigator url='raiders'><view style='font-size:14px;color:#888888'>{{description}}</view></navigator>
-      
+
+      <view style='font-size:14px;color:#888888'>{{description}}</view>
+
+
       <slider value='{{raider.possibility}}' step='25' bindchange='sliderchange' bindchanging='sliderchanging' />
     </view>
 

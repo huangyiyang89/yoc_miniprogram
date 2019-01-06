@@ -6,26 +6,24 @@ Page({
    */
   data: {
     news: null,
-    tops:null
+    tops: null
   },
   refresh() {
-    let that=this;
+    wx.showLoading({
+      title: '加载中'
+    });
     wx.request({
       url: 'https://yoc.huangyiyang.com/api/news/',
-      success(res) {
-        console.log(res.data)
-        that.setData({
-          tops: res.data
+      success: res => {
+        this.setData({
+          news: res.data.filter(function (value) {
+            return value.type != "top"
+          }),
+          tops: res.data.filter(function(value) {
+            return value.type == "top"
+          })
         });
-      }
-    })
-    wx.request({
-      url: 'https://yoc.huangyiyang.com/api/news/',
-      success(res) {
-        console.log(res.data)
-        that.setData({
-          news: res.data
-        });
+        wx.hideLoading();
       }
     })
   },
@@ -68,10 +66,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    wx.showNavigationBarLoading();
     this.refresh();
     wx.stopPullDownRefresh();
-    wx.hideNavigationBarLoading();
   },
 
   /**

@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    lgoinFail:false
+    loginFail: false
   },
   login: function() {
     wx.showLoading({
@@ -23,11 +23,15 @@ Page({
                   url: '/pages/activity/activity'
                 })
               } else {
-                logingFail=true;
+                this.setData({
+                  loginFail: true
+                })
               }
             },
-            fail:res=>{
-              logingFail = true;
+            fail: res => {
+              this.setData({
+                loginFail: true
+              })
             },
             complete: res => {
               wx.hideLoading();
@@ -92,5 +96,9 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+
+  retry:function(){
+    this.login();
   }
 })

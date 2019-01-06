@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    users: null
+    raiders: null
   },
 
   /**
@@ -19,7 +19,7 @@ Page({
         console.log(res);
         if (res.statusCode == 200) {
           that.setData({
-            users: res.data
+            raiders: res.data
           })
         } else {
 

@@ -9,8 +9,7 @@
         </view>
         <view class="weui-msg__opr-area">
             <view class="weui-btn-area">
-                <button class="weui-btn" type="primary">重新尝试</button>
-                <button class="weui-btn" type="default">辅助操作</button>
+                <button class="weui-btn" type="primary" bindtap='retry'>重新尝试</button>
             </view>
         </view>
         <view class="weui-msg__extra-area">

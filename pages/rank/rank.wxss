@@ -1,1 +1,17 @@
 /* pages/rank/rank.wxss */
+
+.placeholder{
+    margin: 2px 1px;
+    padding: 0 10px;
+    background-color: white;
+    height: 2.3em;
+    line-height: 2.3em;
+}
+
+.header{
+    margin: 2px 1px;
+    padding: 0 10px;
+    height: 2.3em;
+    line-height: 2.3em;
+    color: 
+}

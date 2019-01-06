@@ -1,7 +1,7 @@
 <view class="page">
   <view class="page__hd">
-    <view class="page__title">更新您的资料</view>
-    <view class="page__desc">洛丹伦的森林轻声唤出了你的名字</view>
+    <view class="page__title">注册您的资料</view>
+    <view class="page__desc">请正确填写您的资料</view>
   </view>
   <view class="page__bd">
     <view class="weui-cells__title">基本资料</view>
@@ -11,7 +11,7 @@
           <view class="weui-label">昵称</view>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="请输入您的昵称" bindinput="nameInput" />
+          <input class="weui-input" placeholder="请输入您的昵称" bindinput="nameInput" value='{{name}}' />
         </view>
       </view>
 
@@ -23,23 +23,46 @@
           <view class="weui-label">手机号</view>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="请输入您的手机号" bindinput="phoneInput" />
+          <input class="weui-input" placeholder="请输入您的手机号" bindinput="phoneInput" value='{{phone}}'/>
         </view>
       </view>
     </view>
 
 
+    <view class="weui-cells__title">角色</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">角色名</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入您的角色名" bindinput="characterNameInput" value='{{characterName}}' />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">职业</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker bindchange="classChange" value="{{classIndex}}" range="{{classes}}">
+            <view class="weui-select weui-select_in-select-after">{{classes[classIndex]}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">服务器</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入您的服务器名" bindinput="serverNameInput" value='{{serverName}}' />
+        </view>
+      </view>
+    </view>
+
     <view class="weui-btn-area">
       <button class="weui-btn" type="primary" bindtap='submit'>确定</button>
     </view>
-    <view style='height:50rpx'></view>
-    <view class="weui-footer">
-      <view class="weui-footer__links">
-        <navigator url="" class="weui-footer__link">Yes of course</navigator>
-      </view>
-      <view class="weui-footer__text">Copyright © yesofcourse.com.cn</view>
-    </view>
-
+    
   </view>
 
 

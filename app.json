@@ -35,7 +35,7 @@
         "selectedIconPath": "content/discovery2.png"
       },
       {
-        "pagePath": "pages/my/character",
+        "pagePath": "pages/rank/rank",
         "text": "排名",
         "iconPath": "content/rank.png",
         "selectedIconPath": "content/rank2.png"
